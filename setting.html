@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SATISFETE - Paramètres</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+           :root {
+            --primary-color: #FF5AA4;
+            --secondary-color: #FF435C;
+            --light-pink: #FBD5E5;
+            --lightest-pink: #FDF1F1;
+            --text-color: #333333;
+            --text-light: #777777;
+            --transition: all 0.3s ease-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--lightest-pink);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center; /* Centre horizontalement */
+            align-items: center; /* Centre verticalement */
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 500px;
+            padding: 40px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: 20px; /* Marge pour les petits écrans */
+            
+        }
+
+        .login-container h1 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .login-form button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .login-form button:hover {
+            background-color: var(--secondary-color);
+        }
+        .settings-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: none; /* Caché par défaut jusqu'à la connexion */
+        }
+
+        .welcome-message {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .settings-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+        .form-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group input[type="file"] {
+            padding: 5px;
+        }
+
+        .preview-image {
+            max-width: 200px;
+            max-height: 200px;
+            margin-top: 10px;
+            display: block;
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .message {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .logout-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            display: none;
+        }
+        .settings-container {
+                padding: 30px 15px;
+            }
+        @media (max-width: 768px) {
+            .login-container {
+                padding: 30px 20px;
+                margin: 15px;
+            }
+            
+            body {
+                align-items: flex-start; /* Sur mobile, on aligne en haut */
+                padding-top: 40px; /* Avec un peu d'espace */
+            }
+        }
+            .settings-container {
+                padding: 30px 15px;
+            }
+        
+    </style>
+</head>
+<body>
+    <!-- Formulaire de connexion -->
+    <div class="login-container" id="login-section">
+        <h1>Accès aux paramètres</h1>
+        <form class="login-form" id="login-form">
+            <input type="password" id="password" placeholder="Entrez le mot de passe" required>
+            <button type="submit">Se connecter</button>
+        </form>
+    </div>
+
+    <!-- Section des paramètres (visible après connexion) -->
+    <div class="settings-container" id="settings-section">
+        <button class="logout-btn" id="logout-btn">Déconnexion</button>
+        
+        <div class="welcome-message">
+            <h2>Bienvenue Radia</h2>
+            <p>Vous pouvez suggérer des modifications pour votre site SATISFETE</p>
+        </div>
+
+        <div class="message" id="message"></div>
+
+        <form class="settings-form" id="settings-form">
+            <div class="form-section">
+                <h3>Logo</h3>
+                <div class="form-group">
+                    <label for="logo">Télécharger un nouveau logo</label>
+                    <input type="file" id="logo" name="logo" accept="image/*">
+                    <small>Format recommandé : PNG transparent, hauteur d'environ 70px</small>
+                </div>
+                <div class="form-group">
+                    <label>Logo actuel</label>
+                    <img src="logo1.png" alt="Logo actuel" class="preview-image" id="current-logo">
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Photo de profil (À propos)</h3>
+                <div class="form-group">
+                    <label for="profile-pic">Télécharger une nouvelle photo</label>
+                    <input type="file" id="profile-pic" name="profile-pic" accept="image/*">
+                    <small>Format recommandé : Carré, minimum 400x400px</small>
+                </div>
+                <div class="form-group">
+                    <label>Photo actuelle</label>
+                    <img src="face1.png" alt="Photo actuelle" class="preview-image" id="current-profile-pic">
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Vidéos de réalisations</h3>
+                <div class="form-group">
+                    <label for="video1">Remplacement Vidéo 1</label>
+                    <input type="file" id="video1" name="video1" accept="video/*">
+                </div>
+                <div class="form-group">
+                    <label for="video2">Remplacement Vidéo 2</label>
+                    <input type="file" id="video2" name="video2" accept="video/*">
+                </div>
+                <div class="form-group">
+                    <label for="video3">Remplacement Vidéo 3</label>
+                    <input type="file" id="video3" name="video3" accept="video/*">
+                </div>
+                <small>Les vidéos doivent être au format MP4 et de bonne qualité</small>
+            </div>
+
+            <div class="form-section">
+                <h3>Coordonnées</h3>
+                <div class="form-group">
+                    <label for="email">Email de contact</label>
+                    <input type="email" id="email" name="email" value="contact@satisfete.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Numéro de téléphone</label>
+                    <input type="tel" id="phone" name="phone" value="+33 1 23 45 67 89">
+                </div>
+                <div class="form-group">
+                    <label for="address">Adresse</label>
+                    <textarea id="address" name="address">61 rue Camille Guillaume, 91270 Vigneux-sur-Seine</textarea>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Autres modifications</h3>
+                <div class="form-group">
+                    <label for="other-changes">Décrivez toute autre modification que vous souhaitez suggérer</label>
+                    <textarea id="other-changes" name="other-changes" rows="4"></textarea>
+                </div>
+                <small>Ces suggestions seront envoyées au développeur pour évaluation</small>
+            </div>
+
+            <button type="submit" class="submit-btn">Envoyer les suggestions</button>
+        </form>
+    </div>
+
+    <script>
+        // Gestion de la connexion
+        const loginForm = document.getElementById('login-form');
+        const loginSection = document.getElementById('login-section');
+        const settingsSection = document.getElementById('settings-section');
+        const logoutBtn = document.getElementById('logout-btn');
+        const messageDiv = document.getElementById('message');
+        
+        // Mot de passe correct
+        const CORRECT_PASSWORD = "05/06/2025";
+        
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = document.getElementById('password').value;
+            
+            if (password === CORRECT_PASSWORD) {
+                // Connexion réussie
+                loginSection.style.display = 'none';
+                settingsSection.style.display = 'block';
+                logoutBtn.style.display = 'block';
+            } else {
+                alert('Mot de passe incorrect. Veuillez réessayer.');
+            }
+        });
+        
+        // Déconnexion
+        logoutBtn.addEventListener('click', function() {
+            loginSection.style.display = 'block';
+            settingsSection.style.display = 'none';
+            logoutBtn.style.display = 'none';
+            loginForm.reset();
+        });
+        
+        // Prévisualisation des images avant upload
+        document.getElementById('logo').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    document.getElementById('current-logo').src = event.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        document.getElementById('profile-pic').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    document.getElementById('current-profile-pic').src = event.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        // Envoi du formulaire de modifications
+        document.getElementById('settings-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            // Afficher "Envoi en cours..."
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Envoi en cours...';
+            
+            // Ici, vous devriez normalement envoyer les données à un serveur
+            // Pour cet exemple, nous simulons un envoi réussi
+            
+            setTimeout(() => {
+                // Simuler un envoi réussi
+                showMessage('Vos suggestions ont été envoyées avec succès. Elles seront traitées sous 1-2 jours ouvrés.', 'success');
+                
+                // Réinitialiser le bouton
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+                
+                // Envoyer les données par email (simulation)
+                sendEmailNotification(formData);
+            }, 1500);
+        });
+        
+        function showMessage(text, type) {
+            messageDiv.textContent = text;
+            messageDiv.className = type;
+            messageDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+        
+        function sendEmailNotification(formData) {
+            // Dans une vraie implémentation, vous utiliseriez un service comme EmailJS
+            // ou un envoi via un serveur pour notifier le développeur
+            
+            console.log("Notification envoyée au développeur avec les modifications suggérées:");
+            
+            // Afficher les données du formulaire dans la console pour simulation
+            for (let [key, value] of formData.entries()) {
+                if (value instanceof File) {
+                    console.log(key, value.name);
+                } else {
+                    console.log(key, value);
+                }
+            }
+            
+            // Ici, vous pourriez ajouter un vrai envoi d'email via:
+            // - Une API comme SendGrid, Mailgun
+            // - Un service comme EmailJS
+            // - Un appel à un serveur backend qui envoie l'email
+        }
+    </script>
+</body>
+</html>
